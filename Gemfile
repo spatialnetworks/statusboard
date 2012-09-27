@@ -1,0 +1,11 @@
+source 'http://rubygems.org'
+
+gem 'sinatra'
+gem 'sinatra-contrib'
+gem 'haml'
+gem 'github'
+gem 'foreman'
+gem 'coffee-script'
+gem 'github_api'
+gem 'syndication'
+gem 'time-ago-in-words'

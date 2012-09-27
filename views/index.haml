@@ -1,0 +1,66 @@
+!!!
+%html
+  %head
+    %title SNI Display Board
+    %script{src: '/js/jquery-1.8.2.min.js', type: 'text/javascript'}
+    %script{src: '/js/underscore-min.js', type: 'text/javascript'}
+    %script{src: '/js/backbone-min.js', type: 'text/javascript'}
+    %script{src: '/js/handlebars-1.0.rc.1.js', type: 'text/javascript'}
+    %script{src: '/application.js', type: 'text/javascript'}
+    %link{href: '/css/bootstrap.min.css', media: 'screen', rel: 'stylesheet', type: 'text/css'}
+    %link{href: '/application.css', media: 'screen', rel: 'stylesheet', type: 'text/css'}
+  %body
+    .timeline
+
+      .blog-section
+        %h1.section-title.blog-title blog
+        .section.tweets
+          %img{src: '/img/spinner-black.gif'}
+
+      .twitter-section
+        %h1.section-title twitter
+        .section.tweets
+          %img{src: '/img/spinner-black.gif'}
+        .fade-top-left
+
+      .github-section
+        %h1.section-title commits
+        .commits
+          %img{src: '/img/spinner-black.gif'}
+
+  %script#blogTemplate{type: 'text/template'}
+    .tweet.clearfix
+      %h1.event-title-blog
+        {{title}}
+        %span.event-time-blog {{pubdate}}
+      .tweet-text
+        {{description}}
+      .blog-twitter-activity
+        %span.blog-twitter-activity-count
+          {{count}} mentions on social networks.
+        {{#each photos}}
+        %img.avatar-blog{src: "{{this}}"}
+        {{/each}}
+
+  %script#tweetTemplate{type: 'text/template'}
+    .tweet.clearfix
+      %img.avatar{src: "{{image}}"}
+      %h1.tweet-from @{{from_user}}
+      %p.tweet-time {{created_at}}
+      .tweet-text {{text}}
+
+  %script#commitTemplate{type: 'text/template'}
+    %img.avatar{src: "{{avatar}}"}
+    %h1.event-title-git {{repo}}
+    %h1.event-subtitle {{subtitle}}
+    %p.event-time-git {{created_at}}
+    %div.commits
+      {{#each commits}}
+      %div.commit-item
+        %div.commit-stats
+          %span.additions
+            +{{additions}}
+          %span.deletions
+            \-{{deletions}}
+        {{message}}
+      {{/each}}
