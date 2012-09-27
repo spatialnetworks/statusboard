@@ -1,7 +1,7 @@
 class BaseConnector
   def self.fetch!
-    # Cache the file on disk for 5 minutes.
-    if File.exists?(self.cached_path) && File.ctime(self.cached_path) + (60 * 5) > Time.now
+    # Cache the file on disk for 3 minutes.
+    if File.exists?(self.cached_path) && File.ctime(self.cached_path) + (60 * 3) > Time.now
       YAML.load(File.read(self.cached_path))
     else
       self.new.fetch.tap do |result|

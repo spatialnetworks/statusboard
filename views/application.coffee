@@ -83,7 +83,8 @@ window.reloader = ->
   board.instances.blogCollection.fetch()
   board.instances.tweetCollection.fetch()
 
-  setTimeout "window.reloader()", ((1000 * 60) * 10)
+  # 5 minute refresh interval
+  setTimeout "window.reloader()", ((1000 * 60) * 5)
 
 $ ->
   board.instances.commitCollection = new board.collections.commits
