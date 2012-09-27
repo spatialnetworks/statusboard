@@ -1,11 +1,12 @@
+$:.unshift(File.expand_path(File.dirname(__FILE__))) unless
+    $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
+
 require 'bundler/setup'
 require 'sinatra'
 require 'sinatra/json'
 require 'sinatra/reloader'
 require 'haml'
-
-# Require /lib
-Dir.entries('lib/')[2..-1].each {|file| require "./lib/#{file}" }
+require 'lib/connectors'
 
 set :root, File.dirname(__FILE__)
 

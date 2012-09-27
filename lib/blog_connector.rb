@@ -1,7 +1,6 @@
 require 'faraday'
 require 'syndication/rss'
 require 'json'
-require './lib/base_connector'
 
 class BlogConnector < BaseConnector
 

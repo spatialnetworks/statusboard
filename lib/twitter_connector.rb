@@ -1,6 +1,5 @@
 require 'faraday'
 require 'time-ago-in-words'
-require './lib/base_connector'
 
 class TwitterConnector < BaseConnector
 

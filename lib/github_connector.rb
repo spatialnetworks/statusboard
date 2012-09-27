@@ -1,6 +1,4 @@
 require 'github_api'
-require './lib/base_connector'
-require 'time-ago-in-words'
 
 class GithubConnector < BaseConnector
 
