@@ -14,7 +14,7 @@ class board.views.baseSheet extends Backbone.View
   render: ->
     @$el.empty()
     if @collection.length == 0
-      @$el.html('Uh oh, something seems to have gone haywire with this feed. I\'ll try again in 10 minutes.')
+      @$el.html('Uh oh, something seems to have gone haywire with this feed. I\'ll try again in 5 minutes.')
     else
       @collection.each(@renderOne)
 
@@ -84,7 +84,7 @@ window.reloader = ->
   board.instances.tweetCollection.fetch()
 
   # 5 minute refresh interval
-  setTimeout "window.reloader()", ((1000 * 60) * 5)
+  setTimeout "window.reloader()", (1000 * 60 * 5)
 
 $ ->
   board.instances.commitCollection = new board.collections.commits
