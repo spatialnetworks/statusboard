@@ -7,8 +7,7 @@ class BlogConnector < BaseConnector
 
   SPATIAL_NETWORKS_BLOG = 'http://spatialnetworks.com/?feed=rss2'
   MAX_BLOG_POSTS = 3
-
-  def self.cached_path; 'cache/blog.yml'; end
+  cached_path 'cache/blog.yml'
 
   def initialize
     @parser = Syndication::RSS::Parser.new
@@ -17,7 +16,7 @@ class BlogConnector < BaseConnector
   end
 
   def fetch
-    formatter# rescue []
+    formatter
   end
 
   def formatter

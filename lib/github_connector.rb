@@ -1,11 +1,11 @@
 require 'github_api'
 require './lib/base_connector'
+require 'time-ago-in-words'
 
 class GithubConnector < BaseConnector
 
   MAX_COMMITS = 30
-
-  def self.cached_path; 'cache/github.yml'; end
+  cached_path 'cache/github.yml'
 
   def self.config
     @@config ||= YAML.load(File.read('config/github.yml'))

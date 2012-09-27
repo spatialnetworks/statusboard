@@ -6,6 +6,23 @@ class BaseConnector
     else
       self.new.fetch.tap do |result|
         File.open(self.cached_path, 'w+') { |f| f.write YAML.dump(result) }
+  class << self
+
+    def cached_path(path)
+      @cached_path = path
+    end
+
+    def cache
+      @cached_path
+    end
+
+    def cached_duration(duration)
+      @cached_duration = duration
+    end
+
+    def duration
+      @cached_duration || (60 * 4)
+    end
       end
     end
   rescue

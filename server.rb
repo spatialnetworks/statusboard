@@ -3,7 +3,6 @@ require 'sinatra'
 require 'sinatra/json'
 require 'sinatra/reloader'
 require 'haml'
-require 'time-ago-in-words'
 
 # Require /lib
 Dir.entries('lib/')[2..-1].each {|file| require "./lib/#{file}" }

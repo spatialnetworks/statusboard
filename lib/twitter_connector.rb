@@ -1,9 +1,10 @@
 require 'faraday'
+require 'time-ago-in-words'
 require './lib/base_connector'
 
 class TwitterConnector < BaseConnector
 
-  def self.cached_path; 'cache/twitter.yml'; end
+  cached_path 'cache/twitter.yml'
 
   def initialize
     query = %w(fulcrumapp spatialnetworks).join('%20OR%20')
