@@ -25,6 +25,7 @@ class GithubConnector < BaseConnector
     [].tap do |array|
       return array if @commits == 30
       @connection.events.user_org('tylerjohnst', 'spatialnetworks').each do |event|
+      @connection.events.user_org(self.class.config['username'], 'spatialnetworks').each do |event|
         if event.type == 'PushEvent'
           repo = event.repo.name.gsub("spatialnetworks/", "")
           hash = {
