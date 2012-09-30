@@ -86,6 +86,26 @@ window.reloader = ->
   # 5 minute refresh interval
   setTimeout "window.reloader()", (1000 * 60 * 5)
 
+window.carousel = ->
+  $timeline = $('.timeline')
+  $divs = $timeline.children()
+
+  moveCarosel = (integer) ->
+    $timeline.animate('margin-left': "-#{integer}px")
+
+  looper = (index) ->
+    moveLength = $(window).width() / 1.5
+    if index + 1 > $divs.length
+      moveCarosel(0 * moveLength)
+      index = 0
+    else
+      moveCarosel(index * moveLength)
+    setTimeout ->
+      looper(index + 1)
+    , 10000
+
+  looper(0)
+
 $ ->
   board.instances.commitCollection = new board.collections.commits
   board.instances.commitSheet = new board.views.commitSheet(collection: board.instances.commitCollection)
@@ -96,4 +116,7 @@ $ ->
   board.instances.tweetCollection = new board.collections.tweets
   board.instances.tweetSheet = new board.views.tweetSheet(collection: board.instances.tweetCollection)
 
+  window.activeDiv = 0
+  window.carousel()
   window.reloader()
+
