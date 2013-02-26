@@ -11,22 +11,22 @@
     %link{href: '/application.css', media: 'screen', rel: 'stylesheet', type: 'text/css'}
   %body
     .timeline
-
-      .blog-section
-        %h1.section-title.blog-title blog
-        .section.tweets
-          %img{src: '/img/spinner-black.gif'}
-
-      .twitter-section
-        %h1.section-title twitter
-        .section.tweets
-          %img{src: '/img/spinner-black.gif'}
-        .fade-top-left
-
+    
       .github-section
         %h1.section-title commits
         .commits
           %img{src: '/img/spinner-black.gif'}
+                
+      .blog-section
+        %h1.section-title.blog-title blog
+        .section.tweets
+          %img{src: '/img/spinner-black.gif'}
+                
+      .twitter-section
+        %h1.section-title twitter
+        .section.tweets
+          %img{src: '/img/spinner-black.gif'}
+          .fade-top-left
 
   %script#blogTemplate{type: 'text/template'}
     .tweet.clearfix
